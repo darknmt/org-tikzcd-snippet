@@ -12,10 +12,10 @@ MathJax does not regconize tikz-cd blocs while the math notes that I maintain us
 
 Notices
 --------------
- - PNG files are stored as ../img/[YYY-MM-DD]file.png
- - To ignore the warning, add 
+- PNG files are stored as ../img/[YYY-MM-DD]file.png
+- To ignore the warning, add 
  
          (add-to-list 'warning-suppress-types '(yasnippet backquote-change)) 
-     
-   to .emacs file 
+  
+	to .emacs file 
  
