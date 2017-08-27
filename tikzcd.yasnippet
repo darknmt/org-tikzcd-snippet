@@ -2,16 +2,18 @@
 # name: tikz-cd-figure
 # key: tikzcd
 # --
-#+HEADER: :imagemagick yes :iminoptions -density 300 -resize 400 :buffer no :fit yes
+#+HEADER: :imagemagick yes :iminoptions -density 300 -resize 1000 :buffer no :fit yes
 #+HEADER: :results raw  :file ../img/`(insert (format-time-string "%Y-%m-%d-"))`${2:$(substring yas/text 4)}.png
 #+HEADER: :packages '(("" "tikz-cd"))
-#+HEADER: :exports none
+#+HEADER: :exports (if (eq org-export-current-backend 'html) "none" "code")
 #+BEGIN_SRC latex 
 \begin{tikzcd}
 $0
 \end{tikzcd}
+%\caption{${1:Insert caption}}
+\label{${2:"waiting"$(unless yas/modified-p (reftex-label "figure" 'dont-insert))}}
 #+END_SRC
 
-#+CAPTION: ${1:Insert caption} label:${2:"waiting"$(unless yas/modified-p (reftex-label "figure" 'dont-insert))}
-#+ATTR_HTML: :alt "$1" :width "${3:50}%"
+#+CAPTION: $1 [$2]
+#+ATTR_HTML: :width ${3:50}%
 #+ATTR_LATEX: :width 0.$3\textwidth
